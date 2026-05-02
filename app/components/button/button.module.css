@@ -2,10 +2,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 8px 20px;
-  border-radius: 5px;
-  font-size: 0.95rem;
+  gap: 0.4em;
   font-weight: bold;
   cursor: pointer;
   transition:
@@ -14,7 +11,29 @@
     box-shadow 0.2s,
     border-color 0.2s;
   text-transform: uppercase;
+  letter-spacing: 0.03em;
   border: 2px solid transparent;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+/* ── Sizes ───────────────────────────────────────────── */
+.sm {
+  font-size: 0.72rem;
+  padding: 0.45em 1em;
+  border-radius: 4px;
+}
+
+.md {
+  font-size: 0.875rem;
+  padding: 0.6em 1.5em;
+  border-radius: 5px;
+}
+
+.lg {
+  font-size: 1rem;
+  padding: 0.75em 2em;
+  border-radius: 6px;
 }
 
 /* Solid — filled background */

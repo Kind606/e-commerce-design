@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import Button from "../button/button";
 import styles from "./productCard.module.css";
 import { ProductCardProps } from "./productCard.types";
 
@@ -9,6 +11,7 @@ export default function ProductCard({
   price,
   rating,
   discount,
+  addToCart,
 }: ProductCardProps) {
   const discountedPrice = discount ? price * (1 - discount / 100) : null;
 
@@ -28,7 +31,19 @@ export default function ProductCard({
       ) : (
         <p>${price.toFixed(2)}</p>
       )}
-      <p>⭐ {rating}</p>
+      <div className={styles.productInfo}>
+        <p>⭐ {rating}</p>
+        <Button
+          variant="solid"
+          sizes="sm"
+          onClick={(e) => {
+            e.preventDefault();
+            addToCart?.();
+          }}
+        >
+          Add to Cart
+        </Button>
+      </div>
     </Link>
   );
 }

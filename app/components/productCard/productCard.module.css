@@ -1,14 +1,12 @@
 .productCard {
   width: 200px;
   background-color: #f0f0f0;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   color: #474747;
   cursor: pointer;
-  border: 1px solid transparent;
-  outline: 1px solid #ff6347;
+  border: 1px solid #474747;
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
@@ -18,7 +16,7 @@
 
   &:hover {
     box-shadow: 0 8px 20px rgba(255, 99, 71, 0.3);
-    outline-color: #ff4500;
+    border-color: #ff4500;
   }
 
   & h3 {
@@ -87,5 +85,17 @@
 @media (max-width: 600px) {
   .productCard {
     width: 100%;
+  }
+}
+
+.productInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-right: 10px;
+
+  & button {
+    display: block;
   }
 }

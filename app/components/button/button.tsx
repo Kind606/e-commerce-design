@@ -1,20 +1,17 @@
 import Link from "next/link";
 import styles from "./button.module.css";
-
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "solid" | "outline" | "ghost";
-  href?: string;
-}
+import { ButtonProps } from "./button.types";
 
 export default function Button({
   variant = "solid",
+  sizes = "md",
   className = "",
   href,
   children,
   ...props
 }: ButtonProps) {
-  const cls = `${styles.base} ${styles[variant]} ${className}`;
-  if (href) {
+  const cls = `${styles.base} ${styles[variant]} ${styles[sizes]} ${className}`;
+  if (href && !props.onClick) {
     return (
       <Link href={href} className={cls}>
         {children}
@@ -22,7 +19,7 @@ export default function Button({
     );
   }
   return (
-    <button className={cls} {...props}>
+    <button className={cls} {...props} onClick={props.onClick}>
       {children}
     </button>
   );
