@@ -17,7 +17,6 @@
   padding-bottom: 10px;
 
   &:hover {
-    transform: translateY(-6px) scale(1.02);
     box-shadow: 0 8px 20px rgba(255, 99, 71, 0.3);
     outline-color: #ff4500;
   }
@@ -55,23 +54,6 @@
     font-size: 0.75rem;
     color: #888;
   }
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(
-      120deg,
-      transparent,
-      rgba(255, 255, 255, 0.35),
-      transparent
-    );
-    transform: skewX(-20deg);
-    transition: left 0.5s ease;
-  }
 }
 
 .productCard:hover .productImage::before {
@@ -82,7 +64,7 @@
   position: absolute;
   top: 8px;
   left: 8px;
-  background-color: #ff6347;
+  background-color: #ff0000;
   color: white;
   font-size: 0.75rem;
   font-weight: bold;

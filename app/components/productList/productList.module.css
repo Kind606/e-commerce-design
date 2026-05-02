@@ -1,15 +1,35 @@
 .wrapper {
   display: flex;
+  position: relative;
   flex-direction: column;
   gap: 20px;
   width: 100%;
 }
 
+.sentinel {
+  height: 1px;
+  visibility: hidden;
+}
+
 .toolbar {
   display: flex;
   align-items: center;
+  position: sticky;
+  top: 85px;
+  z-index: 10;
   gap: 16px;
+  transform: translateX(-0.3%);
+  padding: 8px 16px;
   width: 100%;
+  background: transparent;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.toolbarStuck {
+  border-color: #717171;
+  background: rgb(245, 245, 245);
 }
 
 .count {

@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import Button from "../button/button";
 import FilterPanel from "../filterPanel/filterPanel";
 import ProductCard from "../productCard/productCard";
@@ -11,6 +12,19 @@ interface ProductListProps {
 }
 
 export default function ProductList({ products }: ProductListProps) {
+  const sentinelRef = useRef<HTMLDivElement>(null);
+  const [isStuck, setIsStuck] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsStuck(!entry.isIntersecting),
+      { rootMargin: "-85px 0px 0px 0px", threshold: 1 },
+    );
+    const el = sentinelRef.current;
+    if (el) observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   const {
     filters,
     filterOpen,
@@ -27,7 +41,10 @@ export default function ProductList({ products }: ProductListProps) {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.toolbar}>
+      <div ref={sentinelRef} className={styles.sentinel} />
+      <div
+        className={`${styles.toolbar} ${isStuck ? styles.toolbarStuck : ""}`}
+      >
         <Button variant={isFiltered ? "solid" : "outline"} onClick={openFilter}>
           {isFiltered ? "Filters applied ✕" : "Filter"}
         </Button>
