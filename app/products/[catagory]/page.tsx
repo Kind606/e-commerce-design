@@ -1,6 +1,6 @@
 import Breadcrumbs from "@/app/components/breadcrumbs/breadcrumbs";
-import Link from "next/link";
-import { catagorys, products } from "../page";
+import ProductList from "@/app/components/productList/productList";
+import { catagorys, products } from "@/app/mockedData";
 import styles from "./catagory.module.css";
 
 export default async function CategoryPage({
@@ -16,19 +16,8 @@ export default async function CategoryPage({
   return (
     <div className={styles.CategoryPage}>
       <Breadcrumbs />
-      <h1>{category ? category.name : "Category not found"}</h1>
-      <div className={styles.productList}>
-        {categoryProducts.map((product) => (
-          <Link
-            key={product.id}
-            href={`/products/${catagory}/${product.id}`}
-            className={styles.productCard}
-          >
-            <h3>{product.name}</h3>
-            <p>${product.price.toFixed(2)}</p>
-          </Link>
-        ))}
-      </div>
+      <h2>{category ? category.name : "Category not found"}</h2>
+      <ProductList products={categoryProducts} />
     </div>
   );
 }

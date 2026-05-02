@@ -1,5 +1,5 @@
 import Breadcrumbs from "@/app/components/breadcrumbs/breadcrumbs";
-import { catagorys, products } from "../../page";
+import { catagorys, products } from "@/app/mockedData";
 import styles from "./productPage.module.css";
 
 export default async function ProductPage({

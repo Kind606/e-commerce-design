@@ -1,7 +1,7 @@
 "use client";
+import { catagorys, products } from "@/app/mockedData";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { catagorys, products } from "../../products/page";
 import styles from "./breadcrumbs.module.css";
 
 function labelForSegment(segment: string): string {
