@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Button from "./components/button/button";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -8,12 +8,10 @@ export default function Home() {
         <h1>Welcome to My E-Commerce Store</h1>
         <p>Discover amazing products at unbeatable prices!</p>
         <div className={styles.buttons}>
-          <Link className={styles.shopButton} href="/products">
-            <p>Shop Now</p>
-          </Link>
-          <Link className={styles.readMoreButton} href="/about">
-            <p>Read More</p>
-          </Link>
+          <Button href="/products">Shop Now</Button>
+          <Button variant="outline" href="/about">
+            Read More
+          </Button>
         </div>
       </div>
     </main>

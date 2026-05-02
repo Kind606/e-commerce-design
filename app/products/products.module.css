@@ -1,7 +1,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: clamp(1.5rem, 8vw, 2.5rem) clamp(2.5rem, 8.5vw, 5.5rem);
   margin-top: 100px;
 }
 
@@ -38,7 +38,6 @@
   flex-direction: column;
   gap: 20px;
   margin-top: 20px;
-  align-items: center;
 
   & h2 {
     font-size: 1.8rem;
@@ -59,8 +58,6 @@
 .catagoryContainer,
 .productContainer {
   display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
 }

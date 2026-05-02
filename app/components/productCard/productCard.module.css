@@ -7,14 +7,19 @@
   align-items: flex-start;
   color: #474747;
   cursor: pointer;
-  border: 1px solid #ff6347;
-  transition: transform 0.3s;
+  border: 1px solid transparent;
+  outline: 1px solid #ff6347;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    outline-color 0.25s ease;
   overflow: hidden;
   padding-bottom: 10px;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(255, 99, 71, 0.3);
+    outline-color: #ff4500;
   }
 
   & h3 {
@@ -30,6 +35,7 @@
 
   & p {
     padding: 0 10px;
+    font-size: 0.9rem;
   }
 }
 
@@ -42,12 +48,34 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 8px;
+  overflow: hidden;
 
   &::after {
     content: "No Image";
     font-size: 0.75rem;
     color: #888;
   }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+  }
+}
+
+.productCard:hover .productImage::before {
+  left: 125%;
 }
 
 .dealBadge {
@@ -72,4 +100,10 @@
 .salePrice {
   color: #ff6347;
   font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .productCard {
+    width: 100%;
+  }
 }

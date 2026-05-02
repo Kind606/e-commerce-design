@@ -9,10 +9,10 @@ export default function NavBar() {
   return (
     <div className={styles.navbarContainer}>
       <div className={`${styles.navbar} ${isHome ? "" : styles.navbarSolid}`}>
-        <div className={styles.logo}>
+        <Link href="/" className={styles.logo}>
           <h1>My</h1>
           <span>E-Commerce</span>
-        </div>
+        </Link>
         <div className={styles.navLinks}>
           <Link href="/">Home</Link>
           <Link href="/products">Shop</Link>
