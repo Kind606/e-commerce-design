@@ -1,12 +1,10 @@
-
-
-
 export interface Product {
   id: number;
   name: string;
   price: number;
   categoryId: number;
   rating: number;
+  deals?: number;
 }
 
 export interface Category {
