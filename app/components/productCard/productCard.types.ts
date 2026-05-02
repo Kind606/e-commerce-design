@@ -4,5 +4,5 @@ export interface ProductCardProps {
   name: string;
   price: number;
   rating: number;
-  deals?: number;
+  discount?: number;
 }

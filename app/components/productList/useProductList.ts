@@ -21,7 +21,7 @@ export function useProductList(products: ProductCardProps[]) {
       p.price >= filters.minPrice &&
       p.price <= filters.maxPrice &&
       p.rating >= filters.minRating &&
-      (!filters.dealsOnly || !!p.deals),
+      (!filters.dealsOnly || !!p.discount),
   );
 
   const remaining = filtered.length - visible;

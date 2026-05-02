@@ -4,7 +4,7 @@ export interface Product {
   price: number;
   categoryId: number;
   rating: number;
-  deals?: number;
+  discount?: number;
 }
 
 export interface Category {

@@ -8,14 +8,14 @@ export default function ProductCard({
   name,
   price,
   rating,
-  deals,
+  discount,
 }: ProductCardProps) {
-  const discountedPrice = deals ? price * (1 - deals / 100) : null;
+  const discountedPrice = discount ? price * (1 - discount / 100) : null;
 
   return (
     <Link href={`/products/${categoryId}/${id}`} className={styles.productCard}>
       <div className={styles.productImage}>
-        {deals && <span className={styles.dealBadge}>-{deals}%</span>}
+        {discount && <span className={styles.dealBadge}>-{discount}%</span>}
       </div>
       <h3>{name}</h3>
       {discountedPrice ? (
