@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Breadcrumbs from "../components/breadcrumbs/breadcrumbs";
+import CatagoryCard from "../components/catagoryCard/catagoryCard";
 import ProductCard from "../components/productCard/productCard";
 import ProductList from "../components/productList/productList";
 import { catagorys, products } from "../mockedData";
@@ -13,20 +13,6 @@ export default function ProductsPage() {
         <h1>Products Page</h1>
         <p>Here you can browse our amazing products!</p>
       </div>
-      <div className={styles.catagorySection}>
-        <h2>Categories</h2>
-        <div className={styles.catagoryContainer}>
-          {catagorys.map((catagory) => (
-            <Link
-              href={`/products/${catagory.id}`}
-              key={catagory.id}
-              className={styles.catagoryCard}
-            >
-              <h3>{catagory.name}</h3>
-            </Link>
-          ))}
-        </div>
-      </div>
       <div className={styles.favoritesSection}>
         <h2>Top rated Products</h2>
         <div className={styles.productContainer}>
@@ -36,6 +22,14 @@ export default function ProductsPage() {
             .map((product) => (
               <ProductCard key={product.id} {...product} />
             ))}
+        </div>
+      </div>
+      <div className={styles.catagorySection}>
+        <h2>Categories</h2>
+        <div className={styles.catagoryContainer}>
+          {catagorys.map((catagory) => (
+            <CatagoryCard key={catagory.id} {...catagory} />
+          ))}
         </div>
       </div>
       <div className={styles.allProducts}>
