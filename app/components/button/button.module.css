@@ -38,13 +38,13 @@
 
 /* Solid — filled background */
 .solid {
-  background-color: #ff6347;
+  background-color: var(--primary-color);
   color: white;
-  border-color: #ff6347;
+  border-color: var(--primary-color);
 
   &:hover {
-    background-color: #ff4500;
-    border-color: #ff4500;
+    background-color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
     box-shadow: 0 4px 10px rgba(255, 99, 71, 0.4);
   }
 }
@@ -52,11 +52,11 @@
 /* Outline — transparent with border */
 .outline {
   background-color: transparent;
-  color: #ff6347;
-  border-color: #ff6347;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
 
   &:hover {
-    background-color: #ff6347;
+    background-color: var(--primary-color);
     color: white;
     box-shadow: 0 4px 10px rgba(255, 99, 71, 0.4);
   }
@@ -65,10 +65,10 @@
 /* Ghost — no border, minimal */
 .ghost {
   background-color: transparent;
-  color: #474747;
+  color: var(--label-color);
   border-color: transparent;
 
   &:hover {
-    color: #ff6347;
+    color: var(--primary-color);
   }
 }

@@ -14,7 +14,7 @@
   margin: 10px 0px;
   height: 200px;
   border-radius: 25px;
-  background: linear-gradient(135deg, #333, #ff6347);
+  background: linear-gradient(135deg, var(--text-color), var(--primary-color));
 
   & h1 {
     font-size: 2rem;
@@ -41,7 +41,7 @@
 
   & h2 {
     font-size: 1.8rem;
-    color: #ff6347;
+    color: var(--primary-color);
     margin: 0;
     font-weight: bold;
     padding: 0;
@@ -50,18 +50,18 @@
 
 .catagoryCard {
   padding: 10px 20px;
-  background-color: #f0f0f0;
-  color: #ff6347;
-  border: 1px solid #747474;
+  background-color: var(--card-background);
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
   transition:
     background-color 0.25s ease,
     color 0.25s ease,
     border-color 0.25s ease;
 
   &:hover {
-    background-color: #ff6347;
+    background-color: var(--primary-color);
     color: white;
-    border-color: #ff6347;
+    border-color: var(--primary-color);
   }
 }
 

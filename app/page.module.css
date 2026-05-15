@@ -4,7 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #231d1d, #894c2e);
+  background: linear-gradient(
+    135deg,
+    var(--hero-gradient-start),
+    var(--hero-gradient-end)
+  );
 }
 
 .content {

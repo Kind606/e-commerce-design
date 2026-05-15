@@ -8,7 +8,7 @@
 }
 
 .link {
-  color: #ff6347;
+  color: var(--primary-color);
   text-decoration: none;
 
   &:hover {
@@ -17,10 +17,10 @@
 }
 
 .separator {
-  color: #888;
+  color: var(--muted-color);
   margin: 0 2px;
 }
 
 .current {
-  color: #888;
+  color: var(--muted-color);
 }

@@ -1,0 +1,17 @@
+:root {
+  --primary-color: #ff6347;
+  --primary-color-dark: #ff4500;
+  --secondary-color: #1c1c1e;
+  --background-color: #f5f5f5;
+  --text-color: #333333;
+  --card-background: #f0f0f0;
+  --border-color: #747474;
+  --muted-color: #888;
+  --muted-color-light: #999;
+  --label-color: #474747;
+  --hero-gradient-start: #231d1d;
+  --hero-gradient-end: #894c2e;
+  --skeleton-gradient-start: #d0d0d0;
+  --skeleton-gradient-end: #b0b0b0;
+  --badge-color: #ff0000;
+}

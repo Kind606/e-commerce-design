@@ -28,17 +28,17 @@
 }
 
 .toolbarStuck {
-  border-color: #717171;
-  background: rgb(245, 245, 245);
+  border-color: var(--border-color);
+  background: var(--background-color);
 }
 
 .count {
   font-size: 0.9rem;
-  color: #888;
+  color: var(--muted-color);
 }
 
 .empty {
-  color: #888;
+  color: var(--muted-color);
   font-size: 1rem;
 }
 
