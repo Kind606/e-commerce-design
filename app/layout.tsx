@@ -1,7 +1,9 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Cart from "./components/cart/cart";
 import NavBar from "./components/navbar/navBar";
+import { CartProvider } from "./context/cartContext";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -26,15 +28,18 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html
-        lang="en"
-        className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      >
-        <body>
-          <NavBar />
-          {children}
-        </body>
-      </html>
+      <CartProvider>
+        <html
+          lang="en"
+          className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+        >
+          <body>
+            <NavBar />
+            <Cart />
+            {children}
+          </body>
+        </html>
+      </CartProvider>
     </ClerkProvider>
   );
 }

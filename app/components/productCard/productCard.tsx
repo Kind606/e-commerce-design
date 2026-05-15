@@ -1,4 +1,5 @@
 "use client";
+import { useCart } from "@/app/context/cartContext";
 import Link from "next/link";
 import Button from "../button/button";
 import styles from "./productCard.module.css";
@@ -11,9 +12,10 @@ export default function ProductCard({
   price,
   rating,
   discount,
-  addToCart,
 }: ProductCardProps) {
+  const { addToCart } = useCart();
   const discountedPrice = discount ? price * (1 - discount / 100) : null;
+  const finalPrice = discountedPrice ?? price;
 
   return (
     <Link href={`/products/${categoryId}/${id}`} className={styles.productCard}>
@@ -38,7 +40,12 @@ export default function ProductCard({
           sizes="sm"
           onClick={(e) => {
             e.preventDefault();
-            addToCart?.();
+            addToCart({
+              productId: id,
+              name,
+              price: finalPrice,
+              originalPrice: price,
+            });
           }}
         >
           Add to Cart

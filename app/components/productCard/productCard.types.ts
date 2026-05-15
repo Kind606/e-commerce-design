@@ -5,5 +5,4 @@ export interface ProductCardProps {
   price: number;
   rating: number;
   discount?: number;
-  addToCart?: () => void;
 }

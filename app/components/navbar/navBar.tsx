@@ -1,13 +1,17 @@
 "use client";
+import { useCart } from "@/app/context/cartContext";
 import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Button from "../button/button";
+import ShoppingCartIcon from "../icons/shoppingCart";
 import styles from "./navBar.module.css";
 
 export default function NavBar() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const { isLoaded, isSignedIn } = useUser();
+  const { itemCount, openCart } = useCart();
 
   return (
     <div className={styles.navbarContainer}>
@@ -23,17 +27,30 @@ export default function NavBar() {
           <Link href="/contact">Contact</Link>
         </div>
         <div className={styles.authSection}>
+          <Button
+            variant="ghost"
+            sizes="md"
+            className={styles.cartButton}
+            onClick={openCart}
+            aria-label={`Open cart, ${itemCount} item${itemCount !== 1 ? "s" : ""}`}
+          >
+            <span className={styles.cartIcon}>
+              <ShoppingCartIcon />
+            </span>
+            {itemCount > 0 && (
+              <span className={styles.cartBadge}>
+                {itemCount > 99 ? "99+" : itemCount}
+              </span>
+            )}
+          </Button>
           {isLoaded &&
             (isSignedIn ? (
-              <>
-                <Link href="/checkout" className={styles.checkoutLink}>
-                  Checkout
-                </Link>
-                <UserButton />
-              </>
+              <UserButton />
             ) : (
               <SignInButton mode="modal">
-                <button className={styles.signInButton}>Sign In</button>
+                <Button variant="solid" sizes="md">
+                  Sign In
+                </Button>
               </SignInButton>
             ))}
         </div>
