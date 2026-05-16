@@ -7,31 +7,7 @@ import {
   useMemo,
   useState,
 } from "react";
-
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-export interface CartItem {
-  productId: number;
-  name: string;
-  /** Final price after any discount */
-  price: number;
-  /** Original price before discount */
-  originalPrice: number;
-  quantity: number;
-}
-
-interface CartContextValue {
-  items: CartItem[];
-  isOpen: boolean;
-  openCart: () => void;
-  closeCart: () => void;
-  addToCart: (item: Omit<CartItem, "quantity">) => void;
-  removeFromCart: (productId: number) => void;
-  updateQuantity: (productId: number, quantity: number) => void;
-  clearCart: () => void;
-  itemCount: number;
-  total: number;
-}
+import { CartContextValue, CartItem } from "../types";
 
 // ─── Persistence ──────────────────────────────────────────────────────────────
 // TODO: When you add a database, replace the two functions below with API calls.
@@ -91,7 +67,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       }
       return [...prev, { ...item, quantity: 1 }];
     });
-    
   }, []);
 
   const removeFromCart = useCallback((productId: number) => {
