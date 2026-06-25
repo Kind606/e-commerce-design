@@ -1,5 +1,7 @@
 .productCard {
-  width: 200px;
+  min-width: 200px;
+  max-width: 250px;
+  flex: 1 1 200px;
   background-color: var(--card-background);
   display: flex;
   flex-direction: column;

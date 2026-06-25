@@ -61,11 +61,13 @@ export default function ProductList({ products }: ProductListProps) {
         />
       )}
 
-      <div className={styles.productContainer}>
-        {visibleProducts.map((product) => (
-          <ProductCard key={product.id} {...product} />
-        ))}
-      </div>
+     
+        <div className={styles.productContainer}>
+          {visibleProducts.map((product) => (
+            <ProductCard key={product.id} {...product} />
+          ))}
+        </div>
+   
 
       {filtered.length === 0 && (
         <p className={styles.empty}>No products match your filters.</p>
