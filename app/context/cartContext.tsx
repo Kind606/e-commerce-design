@@ -5,9 +5,12 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import { CartContextValue, CartItem } from "../types";
+
+export type { CartItem } from "../types";
 
 // ─── Persistence ──────────────────────────────────────────────────────────────
 // TODO: When you add a database, replace the two functions below with API calls.
@@ -44,6 +47,7 @@ const CartContext = createContext<CartContextValue | null>(null);
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const hasHydrated = useRef(false);
 
   // Hydrate from storage once on mount (avoids SSR mismatch)
   useEffect(() => {
@@ -52,6 +56,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   // Persist whenever items change
   useEffect(() => {
+    if (!hasHydrated.current) {
+      hasHydrated.current = true;
+      return;
+    }
     saveToStorage(items);
   }, [items]);
 

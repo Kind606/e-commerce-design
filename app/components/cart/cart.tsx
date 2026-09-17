@@ -70,7 +70,7 @@ export default function Cart() {
                     </Button>
                   </Link>
                 ) : (
-                  <SignInButton mode="modal">
+                  <SignInButton mode="modal" forceRedirectUrl="/checkout">
                     <Button variant="solid" sizes="md">
                       Sign in to Checkout
                     </Button>

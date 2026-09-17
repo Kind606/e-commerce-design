@@ -2,17 +2,15 @@
 import { useState } from "react";
 import Button from "../button/button";
 import styles from "./filterPanel.module.css";
-import { FilterPanelProps, FilterState } from "./filterPanel.types";
-
-const DEFAULT: FilterState = {
-  minPrice: 0,
-  maxPrice: 500,
-  minRating: 0,
-  dealsOnly: false,
-};
+import {
+  createDefaultFilters,
+  FilterPanelProps,
+  FilterState,
+} from "./filterPanel.types";
 
 export default function FilterPanel({
   filters,
+  config,
   onApply,
   onClose,
 }: FilterPanelProps) {
@@ -34,9 +32,9 @@ export default function FilterPanel({
           </label>
           <input
             type="range"
-            min={0}
-            max={500}
-            step={5}
+            min={config.minPrice}
+            max={config.maxPrice}
+            step={config.priceStep}
             value={local.minPrice}
             onChange={(e) =>
               setLocal((f) => ({ ...f, minPrice: Number(e.target.value) }))
@@ -50,9 +48,9 @@ export default function FilterPanel({
           </label>
           <input
             type="range"
-            min={0}
-            max={500}
-            step={5}
+            min={config.minPrice}
+            max={config.maxPrice}
+            step={config.priceStep}
             value={local.maxPrice}
             onChange={(e) =>
               setLocal((f) => ({ ...f, maxPrice: Number(e.target.value) }))
@@ -66,9 +64,9 @@ export default function FilterPanel({
           </label>
           <input
             type="range"
-            min={0}
-            max={5}
-            step={0.1}
+            min={config.minRating}
+            max={config.maxRating}
+            step={config.ratingStep}
             value={local.minRating}
             onChange={(e) =>
               setLocal((f) => ({ ...f, minRating: Number(e.target.value) }))
@@ -93,8 +91,9 @@ export default function FilterPanel({
           <Button
             variant="outline"
             onClick={() => {
-              setLocal(DEFAULT);
-              onApply(DEFAULT);
+              const defaultFilters = createDefaultFilters(config);
+              setLocal(defaultFilters);
+              onApply(defaultFilters);
               onClose();
             }}
           >

@@ -27,6 +27,7 @@ export default function ProductList({ products }: ProductListProps) {
 
   const {
     filters,
+    config,
     filterOpen,
     filtered,
     visibleProducts,
@@ -56,6 +57,7 @@ export default function ProductList({ products }: ProductListProps) {
       {filterOpen && (
         <FilterPanel
           filters={filters}
+          config={config}
           onApply={applyFilters}
           onClose={closeFilter}
         />
